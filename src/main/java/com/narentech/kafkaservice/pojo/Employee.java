@@ -25,6 +25,7 @@ public class Employee implements Serializable {
     @NotBlank(message = "Dept Cannot be Empty!!")
     private String deptName;
 
+    private Long salary;
     public Long getId() {
         return counter++;
     }

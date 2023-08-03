@@ -18,6 +18,7 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @RequiredArgsConstructor
 @RestController
@@ -51,6 +52,25 @@ public class KafkaEmployeeController {
     ResponseEntity<String> addUser(@Valid @RequestBody Employee user) {
         // persisting the user
         return ResponseEntity.ok("Employee is valid");
+    }
+
+
+    @PostMapping("/getAvg")
+    ResponseEntity<Double> getAverage(@RequestBody  List<Employee> employees) {
+
+        return ResponseEntity.ok(employeeService.getAverageSalary(employees));
+    }
+
+    @PostMapping("/getAveragePerDept")
+    ResponseEntity<Map<String, Double>> getAveragePerDept(@RequestBody  List<Employee> employees) {
+
+        return ResponseEntity.ok(employeeService.getAveragePerDept(employees));
+    }
+
+    @PostMapping("/getMaxSalaryPerDept")
+    ResponseEntity<Map<String, Object>> getMaxSalaryPerDept(@RequestBody  List<Employee> employees) {
+
+        return ResponseEntity.ok(employeeService.getMaxSalaryPerDept(employees));
     }
 
 

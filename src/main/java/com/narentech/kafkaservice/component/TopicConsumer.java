@@ -19,7 +19,7 @@ public class TopicConsumer {
     private String topicName;
 
 
-   // @KafkaListener(topics = "${topic.name.consumer}", containerFactory = "employeeKafkaListenerContainerFactory",groupId = "group_id")
+   @KafkaListener(topics = "${topic.name.consumer}", containerFactory = "employeeKafkaListenerContainerFactory",groupId = "group_id")
     public void consume(ConsumerRecord payload){
         System.out.println("Consumer Message value "+payload.value());
         System.out.println("Consumer Message key"+payload.key());
